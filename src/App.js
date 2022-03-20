@@ -4,13 +4,12 @@ import Footer from './component/footer'
 import './App.css';
 import { useState } from 'react';
 import Alert from './component/Alert';
-import About from './component/About';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  link
-} from "react-router-dom";
+// import About from './component/About';
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route
+// } from "react-router-dom";
 
 export default function App() {
   const [mode, setMode] = useState('light')
@@ -47,24 +46,12 @@ export default function App() {
 
   return (
     <>
-      <Router>
-        <Navbar title="Text Analytics" modeChange={modeChange} modeText={modeText} mode={mode} about="About Us" />
-        <Alert showAlert={showAlert} alert={alert} />
-        <div className="container my-3">
-          <Switch>
-            <Route exact path="/about">
-              <About />
-            </Route>
-            <Route exact path="/">
-              <Textarea showAlert={showAlert} alert={alert} mode={mode} />
-            </Route>
 
-          </Switch>
+      <Navbar title="Text Analytics" modeChange={modeChange} modeText={modeText} mode={mode} about="About Us" />
+      <Alert showAlert={showAlert} alert={alert} />
+      <Textarea showAlert={showAlert} alert={alert} mode={mode} />
+      <Footer />
 
-        </div>
-
-        <Footer />
-      </Router>
 
 
     </>
